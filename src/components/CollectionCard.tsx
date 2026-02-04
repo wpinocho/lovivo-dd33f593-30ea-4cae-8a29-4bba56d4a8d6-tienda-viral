@@ -9,9 +9,9 @@ interface CollectionCardProps {
 
 export const CollectionCard = ({ collection, onViewProducts }: CollectionCardProps) => {
   return (
-    <Card className="bg-white border border-gray-200 overflow-hidden">
+    <Card className="bg-white border border-border overflow-hidden hover:shadow-xl transition-all duration-300 group">
       <CardContent className="p-0">
-        <div className="aspect-[4/3] bg-gray-100 overflow-hidden">
+        <div className="aspect-[4/3] bg-gradient-to-br from-pink-50 to-orange-50 overflow-hidden group-hover:scale-105 transition-transform duration-300">
           {collection.image ? (
             <img 
               src={collection.image} 
@@ -31,8 +31,8 @@ export const CollectionCard = ({ collection, onViewProducts }: CollectionCardPro
               {collection.name}
             </h3>
             {collection.featured && (
-              <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded font-medium">
-                Featured
+              <span className="bg-gradient-to-r from-accent to-amber-500 text-white text-xs px-2 py-1 rounded-full font-semibold shadow-lg">
+                ⭐ Destacado
               </span>
             )}
           </div>
@@ -44,11 +44,10 @@ export const CollectionCard = ({ collection, onViewProducts }: CollectionCardPro
           )}
           
           <Button 
-            variant="outline" 
-            className="w-full text-black border-gray-300 hover:bg-gray-50"
+            className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all shadow-md group-hover:shadow-lg"
             onClick={() => onViewProducts(collection.id)}
           >
-            View Products
+            Ver Productos
           </Button>
         </div>
       </CardContent>

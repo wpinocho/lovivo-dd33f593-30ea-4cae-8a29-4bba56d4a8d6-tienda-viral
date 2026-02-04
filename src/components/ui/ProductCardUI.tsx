@@ -26,10 +26,10 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
   return (
     <HeadlessProductCard product={product}>
       {(logic) => (
-        <Card className="bg-white border border-gray-200">
+        <Card className="bg-white border border-border hover:shadow-xl transition-all duration-300 group">
           <CardContent className="p-4">
             <Link to={`/productos/${logic.product.slug}`} className="block">
-              <div className="aspect-square bg-gray-100 rounded-md mb-3 overflow-hidden relative group">
+              <div className="aspect-square bg-gradient-to-br from-pink-50 to-orange-50 rounded-xl mb-3 overflow-hidden relative group">
                 {(logic.matchingVariant?.image || (logic.product.images && logic.product.images.length > 0)) ? (
                   <>
                     {/* Primary image - only fade on hover if there's a second image */}
@@ -60,17 +60,17 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
                 {/* Badges */}
                 <div className="absolute top-2 left-2 flex flex-col gap-1">
                   {logic.discountPercentage && (
-                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium">
+                    <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-2 py-1 rounded-full font-semibold shadow-lg">
                       -{logic.discountPercentage}%
                     </span>
                   )}
                   {logic.product.featured && (
-                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded font-medium">
-                      Destacado
+                    <span className="bg-gradient-to-r from-accent to-amber-500 text-white text-xs px-2 py-1 rounded-full font-semibold shadow-lg">
+                      ⭐ Bestseller
                     </span>
                   )}
                   {!logic.inStock && (
-                    <span className="bg-gray-600 text-white text-xs px-2 py-1 rounded font-medium">
+                    <span className="bg-gray-900 text-white text-xs px-2 py-1 rounded-full font-semibold">
                       Agotado
                     </span>
                   )}
@@ -154,16 +154,16 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
                 )}
               </div>
               <Button
-                variant="outline"
+                variant="default"
                 size="sm"
                 onClick={() => {
-                  logic.onAddToCartSuccess() // Hook para features adicionales
+                  logic.onAddToCartSuccess()
                   logic.handleAddToCart()
                 }}
                 disabled={!logic.canAddToCart}
-                className="text-black border-black hover:bg-black hover:text-white disabled:opacity-50"
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all shadow-md hover:shadow-lg disabled:opacity-50"
               >
-                {logic.inStock ? 'Agregar' : 'Agotado'}
+                {logic.inStock ? 'Agregar al Carrito' : 'Agotado'}
               </Button>
             </div>
           </CardContent>

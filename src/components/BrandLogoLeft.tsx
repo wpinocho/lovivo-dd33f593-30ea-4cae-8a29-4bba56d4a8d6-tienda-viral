@@ -8,7 +8,7 @@ export const BrandLogoLeft = () => {
         className="h-8 w-auto object-contain" 
         onError={(e) => {
           e.currentTarget.style.display = 'none';
-          e.currentTarget.parentElement!.innerHTML = '<span class="text-xl font-bold text-black">YourBrand</span>';
+          e.currentTarget.parentElement!.innerHTML = '<span class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">GlowPatch</span>';
         }}
       />
     </a>
