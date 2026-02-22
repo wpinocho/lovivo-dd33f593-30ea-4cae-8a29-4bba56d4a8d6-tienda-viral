@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/ProductCard';
 import { CollectionCard } from '@/components/CollectionCard';
-import { FloatingCart } from '@/components/FloatingCart';
 import { NewsletterSection } from '@/components/NewsletterSection';
 import { EcommerceTemplate } from '@/templates/EcommerceTemplate';
 import type { UseIndexLogicReturn } from '@/components/headless/HeadlessIndex';
@@ -205,8 +204,6 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
 
       {/* Newsletter Section */}
       <NewsletterSection />
-
-      <FloatingCart />
     </EcommerceTemplate>
   );
 };

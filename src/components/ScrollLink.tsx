@@ -5,12 +5,14 @@ interface ScrollLinkProps {
   to: string
   children: React.ReactNode
   className?: string
+  onClick?: () => void
 }
 
-export const ScrollLink = ({ to, children, className }: ScrollLinkProps) => {
+export const ScrollLink = ({ to, children, className, onClick }: ScrollLinkProps) => {
   const location = useLocation()
   
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    onClick?.();
     // Extract base path and hash
     const [path, hash] = to.split('#')
     const targetPath = path || '/'

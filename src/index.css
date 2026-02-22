@@ -6,6 +6,43 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Announcement bar marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.announcement-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.announcement-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Nav link underline hover effect */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  right: 50%;
+  height: 1.5px;
+  background: hsl(var(--primary));
+  transition: left 0.25s ease, right 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  left: 16px;
+  right: 16px;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
